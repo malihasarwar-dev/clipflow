@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+frontend/build/
+frontend/.dart_tool/
+models/
+*.bin
+
+
+# Backend Media & Uploads
+backend/media/
+backend/uploads/
+
+# Frontend Build & Cache
+frontend/build/
+frontend/.dart_tool/

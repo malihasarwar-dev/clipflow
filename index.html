@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/clipflow/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClipFlow turns long YouTube videos into captioned vertical Shorts with AI.">
+  <meta name="theme-color" content="#07070D">
+  <title>ClipFlow - AI YouTube Shorts Clipper</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- ============================================================
+       GOOGLE SIGN-IN
+       Replace with your OAuth *Web* client ID (Google Cloud Console >
+       APIs & Services > Credentials). Add your site origin to
+       "Authorized JavaScript origins".
+       ============================================================ -->
+  <meta name="google-signin-client_id" content="927667129590-r6mj0f907mp66gi5672lcq1b2fiv0a3e.apps.googleusercontent.com">
+
+  <!-- ============================================================
+       GOOGLE ADSENSE
+       1) Replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID (here AND in the meta below).
+       2) Ads render automatically once Google approves the site.
+       3) Also edit web/ads.txt with the same publisher ID.
+       ============================================================ -->
+  <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">
+  <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossorigin="anonymous"></script>
+
+  <style>
+    html, body { margin: 0; height: 100%; background: #07070D; }
+    /* Lightweight splash shown until Flutter boots */
+    #splash { position: fixed; inset: 0; display: grid; place-items: center; background: #07070D;
+              color: #fff; font: 600 22px system-ui, sans-serif; letter-spacing: .3px; }
+    #splash span { background: linear-gradient(90deg,#7C3AED,#22D3EE); -webkit-background-clip: text;
+                   background-clip: text; color: transparent; animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .45; } }
+  </style>
+</head>
+<body>
+  <div id="splash"><span>ClipFlow</span></div>
+  <script>
+    // Remove the splash as soon as Flutter paints its first frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('splash'); if (s) s.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
