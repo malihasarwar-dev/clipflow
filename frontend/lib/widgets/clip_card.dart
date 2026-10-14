@@ -26,14 +26,22 @@ class _ClipCardState extends State<ClipCard> {
       final c = VideoPlayerController.networkUrl(Uri.parse(widget.clip.url));
       await c.initialize();
       await c.setLooping(true);
-      c.addListener(() => mounted ? setState(() {}) : null);
+      c.addListener(() {
+        if (mounted) setState(() {});
+      });
       _vc = c;
       _loading = false;
       await c.play();
       if (mounted) setState(() {});
       return;
     }
-    _vc!.value.isPlaying ? await _vc!.pause() : await _vc!.play();
+
+    if (_vc!.value.isPlaying) {
+      await _vc!.pause();
+    } else {
+      await _vc!.play();
+    }
+    if (mounted) setState(() {});
   }
 
   @override
